@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#06132e" />
+  <title>Mars Outpost Challenge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Mars Outpost home">
+      <span class="planet-mark">◉</span>
+      <span><strong><em>Mars</em> Outpost Challenge</strong><small>REAL DECISIONS. REAL TRADE-OFFS. A REAL MISSION.</small></span>
+    </a>
+    <nav class="nav">
+      <a class="active" href="#mission">⌂ <span>Mission</span></a>
+      <a href="#resources">▥ <span>Systems</span></a>
+      <a href="#decision">✦ <span>Make a Decision</span></a>
+    </nav>
+    <div class="pilot"><span class="pilot-icon">👩‍🚀</span><span>MISSION CONTROL<small>EXPLORER 01</small></span></div>
+  </header>
+
+  <main class="dashboard" id="mission">
+    <aside class="left-rail">
+      <section class="rail-section">
+        <div class="section-title"><span class="line-icon">◎</span><h2>Mission objective</h2></div>
+        <p>Keep your crew alive and your outpost running for <b>30 days</b> on the Red Planet.</p>
+        <div class="progress-track"><div id="day-progress" class="progress-fill"></div></div>
+        <div class="progress-label"><span id="day-label">DAY 1 / 30</span><span id="phase-label">SOL 001</span></div>
+      </section>
+      <section class="rail-section">
+        <div class="section-title"><span class="line-icon">⚖</span><h2>Key trade-offs</h2></div>
+        <p class="muted">Every system depends on the others.</p>
+        <div class="tradeoff"><span class="trade-icon heart">♥</span><div><b>Life support</b><small>Air, water, health</small></div></div>
+        <div class="tradeoff"><span class="trade-icon shield">⬟</span><div><b>Radiation shielding</b><small>Protect from solar storms</small></div></div>
+        <div class="tradeoff"><span class="trade-icon bolt">ϟ</span><div><b>Power</b><small>Solar, battery, energy use</small></div></div>
+        <div class="tradeoff"><span class="trade-icon leaf">❧</span><div><b>Food production</b><small>Grow food, manage supplies</small></div></div>
+      </section>
+      <div class="tip-card"><span>💡</span><p><b>Mission tip</b><br>There is no perfect choice. Think ahead, protect your crew, and watch how one system affects another.</p></div>
+    </aside>
+
+    <section class="main-column">
+      <div class="mars-scene">
+        <div class="scene-overlay"></div>
+        <div class="scene-top">
+          <div class="location-pill"><span>⌖</span><div><b>MARS OUTPOST ALPHA</b><small>Your crew's home on the Red Planet</small></div></div>
+          <div class="weather-pill" id="weather-pill"><span>☀</span><div><b>Clear skies</b><small>Solar generation nominal</small></div></div>
+        </div>
+        <div class="mars-art" aria-label="Illustrated Mars landscape and habitat">
+          <div class="sun"></div><div class="distant-mountain m1"></div><div class="distant-mountain m2"></div><div class="ridge"></div>
+          <div class="antenna"><i></i><b></b><span></span></div>
+          <div class="habitat habitat-main"><div class="dome"></div><div class="window-row"></div><div class="door"></div><div class="leg"></div></div>
+          <div class="habitat habitat-left"><div class="mini-dome"></div><div class="door"></div></div>
+          <div class="habitat habitat-right"><div class="greenhouse-glass"><span>🌿</span></div><div class="base"></div></div>
+          <div class="solar-array array-one"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="solar-array array-two"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="rover"><span></span><i></i><i></i></div>
+          <div class="scene-caption"><span class="live-dot"></span> OUTPOST FEED <span>•</span> MARS / 18:42 LOCAL</div>
+        </div>
+        <div class="scene-bottom">
+          <div class="scene-stat"><span>CREW</span><b>04 <small>EXPLORERS</small></b></div>
+          <div class="scene-stat"><span>MISSION SOL</span><b id="sol-stat">001 <small>/ 030</small></b></div>
+          <div class="scene-stat"><span>MISSION STATUS</span><b class="status-good" id="mission-status">● NOMINAL</b></div>
+        </div>
+      </div>
+
+      <section class="resource-grid" id="resources">
+        <article class="resource-card">
+          <div class="resource-head"><span class="resource-icon heart">♥</span><div><h3>Life support</h3><small>Air & water reserves</small></div><b id="life-value">78%</b></div>
+          <div class="meter"><span id="life-bar" style="width:78%"></span></div>
+          <div class="resource-foot"><span>Air quality <b id="air-quality">Good</b></span><span>Water <b id="water-value">82%</b></span></div>
+        </article>
+        <article class="resource-card">
+          <div class="resource-head"><span class="resource-icon shield">⬟</span><div><h3>Radiation shield</h3><small>Habitat protection</small></div><b id="shield-value">65%</b></div>
+          <div class="meter yellow"><span id="shield-bar" style="width:65%"></span></div>
+          <div class="resource-foot"><span>Exposure risk <b id="radiation-risk">Medium</b></span><span id="storm-status">Storm watch</span></div>
+        </article>
+        <article class="resource-card">
+          <div class="resource-head"><span class="resource-icon bolt">ϟ</span><div><h3>Power grid</h3><small>Solar & battery</small></div><b id="power-value">72%</b></div>
+          <div class="meter blue"><span id="power-bar" style="width:72%"></span></div>
+          <div class="resource-foot"><span>Solar <b id="solar-value">68%</b></span><span>Usage <b id="usage-value">Normal</b></span></div>
+        </article>
+        <article class="resource-card">
+          <div class="resource-head"><span class="resource-icon leaf">❧</span><div><h3>Food supply</h3><small>Stores & greenhouse</small></div><b id="food-value">54%</b></div>
+          <div class="meter green"><span id="food-bar" style="width:54%"></span></div>
+          <div class="resource-foot"><span>Rations <b id="ration-days">12 days</b></span><span>Growth <b id="growth-value">58%</b></span></div>
+        </article>
+      </section>
+
+      <section class="decision-panel" id="decision">
+        <div class="decision-heading"><div class="decision-symbol">✦</div><div><h2 id="decision-title">Today's decision</h2><p id="decision-prompt">A dust storm may arrive in 3 days. Your radiation shielding is only at 65%. What will you do?</p></div></div>
+        <div class="choice-grid">
+          <button class="choice shield-choice" data-choice="shield"><span class="choice-icon">⬟</span><b>Upgrade shielding</b><small>−12 power</small><span class="choice-result">+18% radiation protection</span></button>
+          <button class="choice power-choice" data-choice="power"><span class="choice-icon">ϟ</span><b>Conserve power</b><small>−8% power usage</small><span class="choice-result">Slower greenhouse growth</span></button>
+          <button class="choice food-choice" data-choice="food"><span class="choice-icon">❧</span><b>Boost food growth</b><small>−15 power</small><span class="choice-result">+16% food production</span></button>
+          <button class="choice risky-choice" data-choice="skip"><span class="choice-icon">»</span><b>Hold position</b><small>No immediate cost</small><span class="choice-result">Risks rise if storm hits</span></button>
+        </div>
+        <div class="decision-feedback" id="decision-feedback" role="status" aria-live="polite">Choose a strategy to see its consequences. Your choices change the mission.</div>
+        <div class="panel-bottom"><span>⚙ STRATEGY SIMULATION · EVERY CHOICE HAS A COST</span><button id="next-day" class="next-day" disabled>Advance one sol <span>→</span></button></div>
+      </section>
+    </section>
+
+    <aside class="right-rail">
+      <section class="side-card crew-card">
+        <div class="side-heading"><span>♟</span><h2>Crew status</h2><span class="crew-smile" id="crew-face">☺</span></div>
+        <div class="crew-number" id="crew-count">4 / 4</div><b class="crew-health" id="crew-health">Happy & healthy</b>
+        <div class="crew-avatars"><span>👩‍🚀</span><span>👨‍🚀</span><span>👩‍🔬</span><span>🧑‍🚀</span></div>
+      </section>
+      <section class="side-card log-card">
+        <div class="side-heading"><span>▤</span><h2>Mission log</h2></div>
+        <div class="timeline" id="mission-log">
+          <div class="log-entry"><i class="yellow-dot"></i><div><b>Sol 001</b><p>Mission systems checked in</p></div></div>
+          <div class="log-entry"><i class="green-dot"></i><div><b>Sol 000</b><p>Outpost Alpha established</p></div></div>
+          <div class="log-entry"><i class="blue-dot"></i><div><b>Pre-launch</b><p>Crew arrived safely on Mars</p></div></div>
+        </div>
+      </section>
+      <section class="side-card score-card">
+        <div class="side-heading"><span>🏆</span><h2>Mission score</h2></div>
+        <div class="score-big"><span id="score-value">720</span><small> / 1000 PTS</small></div>
+        <div class="meter blue"><span id="score-bar" style="width:72%"></span></div>
+        <p class="muted">Keep all four systems stable to earn a top mission rating.</p>
+        <div class="score-row"><span>Best possible</span><b>1000 pts</b></div>
+        <div class="score-row"><span>Your current rank</span><b id="rank-value">Cadet</b></div>
+      </section>
+      <section class="achievement-card" id="achievement-card">
+        <div class="achievement-star">★</div><h2 id="achievement-title">Your mission awaits</h2><p id="achievement-copy">Can you keep your crew safe for 30 sols?</p>
+        <button id="results-button" class="results-button">View mission report <span>→</span></button>
+      </section>
+    </aside>
+  </main>
+
+  <footer><span>◉ MARS OUTPOST CHALLENGE</span><span>EXPLORE <i>•</i> LEARN <i>•</i> BUILD A BETTER TOMORROW</span><span>STEM / SPACE / SUSTAINABILITY</span></footer>
+
+  <div class="modal-backdrop" id="report-modal" aria-hidden="true">
+    <div class="report-modal" role="dialog" aria-modal="true" aria-labelledby="report-title">
+      <button class="modal-close" id="modal-close" aria-label="Close report">×</button>
+      <div class="report-icon">🚀</div><p class="eyebrow">MISSION DEBRIEF</p><h2 id="report-title">Mission report</h2>
+      <p id="report-summary">Your decisions shaped the future of Outpost Alpha.</p>
+      <div class="report-stats"><div><small>SOLS SURVIVED</small><b id="report-days">1 / 30</b></div><div><small>FINAL SCORE</small><b id="report-score">720</b></div><div><small>CREW STATUS</small><b id="report-crew">Healthy</b></div></div>
+      <h3>Engineering takeaway</h3><p id="report-lesson">Every system is connected. Protecting one resource can put pressure on another.</p>
+      <button class="results-button" id="restart-button">Run mission again ↻</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
